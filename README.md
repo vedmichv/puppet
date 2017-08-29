@@ -16,8 +16,8 @@
  5. Puppet module should be verified with puppet-lint and contains metadata.json
  5. Special Task 1: All static data should be saved in HIERA
  6. Special Task 2: Use Role and Profile aprouch to set up Zabbix server and agent
- 7. Special Task 2: setup module management with r10k (https://github.com/puppetlabs/r10k) r10k basic setup should be done with puppet
-   
+ 7. Special Task 3: setup module management with r10k (https://github.com/puppetlabs/r10k) r10k basic setup should be done with puppet
+ 8. Special Task 4: Encrypt password for access to Zabbix DB
 ## Defenition of done
 
  1. You have at least 2 VMs and can demostrate them, one is a puppet master and one is agent
