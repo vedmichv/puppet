@@ -11,7 +11,7 @@ yum -y install mysql mariadb-server httpd php
 yum -y install zabbix-server-mysql zabbix-agent zabbix-web-mysql
 ```
 
-##Configure the database
+## Configure the database
 Install mysql module
 ```bash
 systemctl start mariadb
@@ -29,7 +29,7 @@ zcat /usr/share/doc/zabbix-server-mysql-3.4.1/create.sql.gz | mysql -uzabbix -pZ
 ```
 
 
-##Configure the webserver
+## Configure the webserver
 ```bash
 sed -i 's/^max_execution_time.*/max_execution_time=600/' /etc/php.ini
 sed -i 's/^max_input_time.*/max_input_time=600/' /etc/php.ini
@@ -39,7 +39,7 @@ sed -i 's/^upload_max_filesize.*/upload_max_filesize=16M/' /etc/php.ini
 sed -i "s/^\;date.timezone.*/date.timezone=\'Europe\/Brussels\'/" /etc/php.ini
 ```
 
-##Configure apache for zabbix
+## Configure apache for zabbix
 ```bash
 vim /etc/httpd/conf.d/zabbix.conf
 ```
@@ -61,14 +61,14 @@ Alias /zabbix /usr/share/zabbix
 </Directory>
 ```
 
-##Configure Zabbix parameters:
+## Configure Zabbix parameters:
 ```bash
 sed -i 's/^# DBPassword=.*/DBPassword=Zabbix_2017/' /etc/zabbix/zabbix_server.conf
 sed -i 's/^# CacheSize=.*/CacheSize=32M/' /etc/zabbix/zabbix_server.conf
 sed -i 's/^# StartPingers=.*/StartPingers=5/' /etc/zabbix/zabbix_server.conf
 ```
 
-##Security considerations
+## Security considerations
 ```bash
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 #With iptables:
@@ -77,7 +77,7 @@ iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 setsebool -P httpd_can_connect_zabbix=1
 ```
 
-##Start and initialize Zabbix
+## Start and initialize Zabbix
 ```bash
 systemctl start zabbix-agent
 systemctl start zabbix-server
