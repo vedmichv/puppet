@@ -25,4 +25,4 @@
  3. Your code is available for review as pull request to this repository
  4. Vagrant file should be available in this repo
  
-### Dead Line 04.09.2017 9AM MSQ time zone
+### Dead Line 04.09.2017 23:59 MSQ time zone
